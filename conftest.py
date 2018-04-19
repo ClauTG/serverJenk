@@ -12,23 +12,25 @@ def pytest_addoption(parser):
 						help='enable headless mode for supported browsers.')
 
 
-@pytest.fixture
+"""@pytest.fixture
 def chrome_options(chrome_options):
 	chrome_options.add_argument('--headless')
     return chrome_options
-
+"""
 @pytest.fixture(scope="module", autouse=True)
 def driver(request):
 	
 	BROWSER = request.getoption("--driver")
 
+	headless = request.getoption('--headless')
+
 	if BROWSER == 'chrome':
-		
-		chromeOptions = webdriver.ChromeOptions()
+		chromeOptions = webdriver.chromeOptions()
 
 		if headless:
-			print "Run test in headless mode: --headless"
 			chromeOptions.add_argument("--headless")
+			browser = webdriver.Chrome(chrome_options=chromeOptions)
+
 
 		else:
 			browser = webdriver.Chrome()
