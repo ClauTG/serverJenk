@@ -43,7 +43,7 @@ def driver():
 
 
 		else:
-			browser = webdriver.Chrome()
+			browser = webdriver.Chrome(chrome_options=chromeOptions)
 	
 		browser.get("about:blank")
 		browser.implicitly_wait(10)
