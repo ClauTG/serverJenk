@@ -20,9 +20,9 @@ def chrome_options(chrome_options):
 @pytest.fixture(scope="module", autouse=True)
 def driver(request):
 	
-	BROWSER = request.getoption("--driver")
+	BROWSER = request.config.getoption("--driver")
 
-	headless = request.getoption('--headless')
+	headless = request.config.getoption('--headless')
 
 	if BROWSER == 'chrome':
 		chromeOptions = webdriver.chromeOptions()
