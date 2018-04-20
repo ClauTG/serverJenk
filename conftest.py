@@ -17,12 +17,12 @@ def chrome_options(chrome_options):
 	chrome_options.add_argument('--headless')
     return chrome_options
 """
-@pytest.fixture()
-def driver():
+@pytest.fixture(scope="module", autouse=True)
+def driver(request):
 	
-	BROWSER = pytest.config.getoption("--driver")
+	BROWSER = request.config.getoption("--driver")
 
-	headless = pytest.config.getoption('--headless')
+	headless = request.config.getoption('--headless')
 
 	# setup
 
