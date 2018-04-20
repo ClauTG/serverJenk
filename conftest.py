@@ -17,15 +17,26 @@ def chrome_options(chrome_options):
 	chrome_options.add_argument('--headless')
     return chrome_options
 """
-@pytest.fixture(scope="module", autouse=True)
-def driver(request):
+@pytest.fixture()
+def driver():
 	
-	BROWSER = request.config.getoption("--driver")
+	BROWSER = pytest.config.getoption("--driver")
 
-	headless = request.config.getoption('--headless')
+	headless = pytest.config.getoption('--headless')
+
+	# setup
 
 	if BROWSER == 'chrome':
-		chromeOptions = webdriver.chromeOptions()
+		
+		# browser preferences and options
+        chromeOptions = webdriver.ChromeOptions()
+        
+        prefs = dict()
+        prefs["credentials_enable_service"] = False
+        prefs["password_manager_enabled"] = False
+        chromeOptions.add_experimental_option("prefs", prefs)
+        chromeOptions.add_argument("--disable-extensions")
+        chromeOptions.add_argument("--disable-infobars")
 
 		if headless:
 			chromeOptions.add_argument("--headless")
