@@ -27,16 +27,15 @@ def driver():
 	# setup
 
 	if BROWSER == 'chrome':
-		
 		# browser preferences and options
-        chromeOptions = webdriver.ChromeOptions()
-        
-        prefs = dict()
-        prefs["credentials_enable_service"] = False
-        prefs["password_manager_enabled"] = False
-        chromeOptions.add_experimental_option("prefs", prefs)
-        chromeOptions.add_argument("--disable-extensions")
-        chromeOptions.add_argument("--disable-infobars")
+		chromeOptions = webdriver.ChromeOptions()
+
+		prefs = dict()
+		prefs["credentials_enable_service"] = False
+		prefs["password_manager_enabled"] = False
+		chromeOptions.add_experimental_option("prefs", prefs)
+		chromeOptions.add_argument("--disable-extensions")
+		chromeOptions.add_argument("--disable-infobars")
 
 		if headless:
 			chromeOptions.add_argument("--headless")
