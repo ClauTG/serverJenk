@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash python3
 
 echo '#### Create Virtual Environment ####'
 VIRTUAL_ENV_NAME='envJen'

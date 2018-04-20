@@ -51,7 +51,7 @@ def driver(request):
 		return browser
 
 	else:
-		print 'only chrome is supported at the moment'
+		print ('only chrome is supported at the moment')
 
 @pytest.fixture(scope="module")
 def username(request):
