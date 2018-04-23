@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import tests as tests
 
 # Test step 1 - Open URL

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from selenium.webdriver.common.by import By
 
 page = "page"
