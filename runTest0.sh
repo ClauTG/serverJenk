@@ -11,7 +11,7 @@ source $VIRTUAL_ENV_NAME/bin/activate
 #pip install -r requirements.txt 
 
 echo '#### Run Test ####'
-py.test --headless test/login_scenario.py
+py.test --headless --alluredir=../../allure-results test/login_scenario.py
 
 echo '#### deactivate virtual enviroment'
 deactivate
